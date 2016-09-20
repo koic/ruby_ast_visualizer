@@ -1,0 +1,40 @@
+#!/usr/bin/env ruby
+#
+# USAGE:
+#
+#   ruby_ast_visualizer [-o path/to/file] 'array.sort { |a, b| a.to_s <=> b.to_s }'
+#
+lib_path = File.expand_path('../../lib', __FILE__)
+$:.unshift(lib_path)
+
+require 'ruby_ast_visualizer'
+require 'ruby_ast_visualizer/version'
+require 'optparse'
+
+Version = RubyAstVisualizer::VERSION
+
+options = {}
+
+opt = OptionParser.new("usage: ruby_ast_visualizer [-o output_path] 'ruby code'")
+
+opt.on('-o', '--output path/to/file (DEFAULT a.png)') {|v| options[:output] = v }
+
+begin
+  opt.permute!(ARGV)
+
+  raise unless ARGV.size == 1
+
+  source = ARGV.shift
+
+  file_name = options[:output] || 'a.png'
+
+  result = RubyAstVisualizer::Core.new(source).reconfigure
+
+  result.output(png: file_name)
+
+  puts "Wrote #{file_name}"
+rescue
+  puts opt.help
+
+  exit!
+end
