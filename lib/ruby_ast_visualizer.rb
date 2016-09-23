@@ -9,13 +9,11 @@ module RubyAstVisualizer
     end
 
     def visualize
-      g = GraphViz.new(:G, type: :digraph)
+      GraphViz.new(:G, type: :digraph) {|g|
+        node = Parser::CurrentRuby.parse(@source)
 
-      node = Parser::CurrentRuby.parse(@source)
-
-      reconfigure(g, node)
-
-      g
+        reconfigure(g, node)
+      }
     end
 
     private
