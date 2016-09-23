@@ -2,7 +2,7 @@
 
 Ruby AST Visualizer. Based on [Parser](https://github.com/whitequark/parser).
 
-## USAGE
+## Usage
 
 An example `ruby_ast_visualizer` command.
 
@@ -30,11 +30,11 @@ You can specify output path in the `-o` option. That value is default a.png.
 $ ruby_ast_visualizer -o path/to/file -e 'puts "hello, world"'
 ```
 
-## REQUIREMENTS
+## Requirements
 
 * Graphviz
 
-## INSTALL
+## Install
 
 Add these lines to your application's Gemfile:
 
