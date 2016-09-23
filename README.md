@@ -6,7 +6,7 @@ Ruby AST Visualizer. Based on [Parser](https://github.com/whitequark/parser).
 
 An example `ruby_ast_visualizer` command.
 
-```
+```sh
 $ cat hello.rb
 puts 'hello, world'
 $ ruby_ast_visualizer hello.rb
@@ -14,7 +14,7 @@ $ ruby_ast_visualizer hello.rb
 
 or
 
-```
+```sh
 $ ruby_ast_visualizer -e 'puts "hello, world"'
 ```
 
@@ -26,7 +26,7 @@ AST image file is generated.
 
 You can specify output path in the `-o` option. That value is default a.png.
 
-```
+```sh
 $ ruby_ast_visualizer -o path/to/file -e 'puts "hello, world"'
 ```
 
@@ -38,19 +38,19 @@ $ ruby_ast_visualizer -o path/to/file -e 'puts "hello, world"'
 
 Add these lines to your application's Gemfile:
 
-```
+```sh
 gem 'ruby_ast_visualizer'
 ```
 
 And then execute:
 
-```
+```sh
 $ bundle
 ```
 
 Or install it yourself as:
 
-```
+```sh
 $ gem install ruby_ast_visualizer
 ```
 
