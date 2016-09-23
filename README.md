@@ -1,4 +1,4 @@
-# Ruby AST Visualizer
+# Ruby AST Visualizer [![Gem Version](https://badge.fury.io/rb/ruby_ast_visualizer.svg)](http://badge.fury.io/rb/ruby_ast_visualizer)
 
 Ruby AST Visualizer. Based on [Parser](https://github.com/whitequark/parser).
 
