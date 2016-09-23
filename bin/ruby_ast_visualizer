@@ -33,7 +33,7 @@ begin
 
   file_name = options[:output] || 'a.png'
 
-  result = RubyAstVisualizer::Core.new(source).reconfigure
+  result = RubyAstVisualizer::Core.new(source).visualize
 
   result.output(png: file_name)
 

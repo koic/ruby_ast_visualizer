@@ -8,19 +8,19 @@ module RubyAstVisualizer
       @source = source
     end
 
-    def reconfigure
+    def visualize
       g = GraphViz.new(:G, type: :digraph)
 
       node = Parser::CurrentRuby.parse(@source)
 
-      _reconfigure(g, node)
+      reconfigure(g, node)
 
       g
     end
 
     private
 
-    def _reconfigure(g, node)
+    def reconfigure(g, node)
       self_node = g.add_nodes(fetch_node_id(node), label: node.type)
 
       node.children.each {|node|
@@ -35,7 +35,7 @@ module RubyAstVisualizer
 
         self_node << g.add_nodes(fetch_node_id(node), label: label)
 
-        _reconfigure(g, node) if node.respond_to? :children
+        reconfigure(g, node) if node.respond_to? :children
       }
     end
 
