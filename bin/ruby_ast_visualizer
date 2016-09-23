@@ -15,16 +15,21 @@ Version = RubyAstVisualizer::VERSION
 
 options = {}
 
-opt = OptionParser.new("usage: ruby_ast_visualizer [-o output_path] 'ruby code'")
+opt = OptionParser.new("usage: ruby_ast_visualizer [-o output_path] [-e 'command'] [programfile]")
 
+opt.on('-e', "--eval 'command'") {|v| options[:eval] = v }
 opt.on('-o', '--output path/to/file (DEFAULT a.png)') {|v| options[:output] = v }
 
 begin
   opt.permute!(ARGV)
 
-  raise unless ARGV.size == 1
+  source = options[:eval]
 
-  source = ARGV.shift
+  if source.nil? || source.empty?
+    raise unless ARGV.size == 1
+
+    source = File.read(ARGV.shift)
+  end
 
   file_name = options[:output] || 'a.png'
 
