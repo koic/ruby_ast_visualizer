@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    ruby_ast_visualizer (0.1.0)
+    ruby_ast_visualizer (0.2.0)
       parser
       ruby-graphviz
 
@@ -9,7 +9,7 @@ GEM
   remote: https://rubygems.org/
   specs:
     ast (2.3.0)
-    parser (2.3.1.2)
+    parser (2.3.1.4)
       ast (~> 2.2)
     ruby-graphviz (1.2.2)
 
