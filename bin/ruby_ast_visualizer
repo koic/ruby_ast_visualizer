@@ -10,6 +10,7 @@ $:.unshift(lib_path)
 require 'ruby_ast_visualizer'
 require 'ruby_ast_visualizer/version'
 require 'optparse'
+require 'parser/current'
 
 Version = RubyAstVisualizer::VERSION
 
@@ -33,7 +34,11 @@ begin
 
   file_name = options[:output] || 'a.png'
 
-  result = RubyAstVisualizer::Core.new(source).visualize
+  ast = Parser::CurrentRuby.parse(source)
+
+  puts "\n#{ast}\n\n"
+
+  result = RubyAstVisualizer::Core.new(ast).visualize
 
   result.output(png: file_name)
 

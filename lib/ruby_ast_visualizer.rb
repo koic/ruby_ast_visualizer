@@ -1,18 +1,15 @@
 require 'graphviz'
-require 'parser/current'
 
 module RubyAstVisualizer
   class Core
-    def initialize(source)
+    def initialize(ast)
       @node_id = 0
-      @source = source
+      @ast = ast
     end
 
     def visualize
       GraphViz.new(:G, type: :digraph) {|g|
-        node = Parser::CurrentRuby.parse(@source)
-
-        reconfigure(g, node)
+        reconfigure(g, @ast)
       }
     end
 
