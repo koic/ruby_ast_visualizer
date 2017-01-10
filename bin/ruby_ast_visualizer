@@ -2,7 +2,7 @@
 #
 # USAGE:
 #
-#   ruby_ast_visualizer [-o path/to/file] 'array.sort { |a, b| a.to_s <=> b.to_s }'
+#   ruby_ast_visualizer [-o path/to/file] -e 'array.sort { |a, b| a.to_s <=> b.to_s }'
 #
 lib_path = File.expand_path('../../lib', __FILE__)
 $:.unshift(lib_path)
