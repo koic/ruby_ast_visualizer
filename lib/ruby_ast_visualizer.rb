@@ -18,19 +18,19 @@ module RubyAstVisualizer
     def reconfigure(g, node)
       self_node = g.add_nodes(fetch_node_id(node), label: node.type)
 
-      node.children.each {|node|
-        label = case node
-                when Integer; node
+      node.children.each {|child|
+        label = case child
+                when Integer; child
                 when NilClass; 'nil'
-                when String; "\"#{node}\""
-                when Symbol; ":#{node}"
+                when String; "\"#{child}\""
+                when Symbol; ":#{child}"
                 else
-                  node.type.to_s
+                  child.type.to_s
                 end
 
-        self_node << g.add_nodes(fetch_node_id(node), label: label)
+        self_node << g.add_nodes(fetch_node_id(child), label: label)
 
-        reconfigure(g, node) if node.respond_to? :children
+        reconfigure(g, child) if node.respond_to? :children
       }
     end
 
