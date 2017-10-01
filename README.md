@@ -2,6 +2,12 @@
 
 Ruby AST Visualizer. Based on [Parser](https://github.com/whitequark/parser).
 
+## Install
+
+```sh
+$ gem install ruby_ast_visualizer
+```
+
 ## Usage
 
 An example `ruby_ast_visualizer` command.
@@ -10,12 +16,22 @@ An example `ruby_ast_visualizer` command.
 $ cat hello.rb
 puts 'hello, world'
 $ ruby_ast_visualizer hello.rb
+
+(send nil :puts
+  (str "hello, world"))
+
+Wrote a.png
 ```
 
 or
 
 ```sh
 $ ruby_ast_visualizer -e 'puts "hello, world"'
+
+(send nil :puts
+  (str "hello, world"))
+
+Wrote a.png
 ```
 
 AST image file is generated.
@@ -28,31 +44,16 @@ You can specify output path in the `-o` option. That value is default a.png.
 
 ```sh
 $ ruby_ast_visualizer -o path/to/file -e 'puts "hello, world"'
+
+(send nil :puts
+  (str "hello, world"))
+
+Wrote path/to/file
 ```
 
 ## Requirements
 
 * Graphviz
-
-## Install
-
-Add these lines to your application's Gemfile:
-
-```sh
-gem 'ruby_ast_visualizer'
-```
-
-And then execute:
-
-```sh
-$ bundle
-```
-
-Or install it yourself as:
-
-```sh
-$ gem install ruby_ast_visualizer
-```
 
 ## Contributing
 
