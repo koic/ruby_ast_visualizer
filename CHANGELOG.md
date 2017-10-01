@@ -1,3 +1,7 @@
+## 0.4.0 (2017-10-01)
+
+* Add `--no-image` option.
+
 ## 0.3.0 (2017-03-12)
 
 * Display an AST text on standard output.

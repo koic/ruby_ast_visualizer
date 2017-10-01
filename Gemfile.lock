@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    ruby_ast_visualizer (0.3.0)
+    ruby_ast_visualizer (0.4.0)
       parser
       ruby-graphviz
 
@@ -20,4 +20,4 @@ DEPENDENCIES
   ruby_ast_visualizer!
 
 BUNDLED WITH
-   1.13.7
+   1.15.4
