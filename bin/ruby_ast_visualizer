@@ -16,9 +16,10 @@ Version = RubyAstVisualizer::VERSION
 
 options = {}
 
-opt = OptionParser.new("usage: ruby_ast_visualizer [-o output_path] [-e 'command'] [programfile]")
+opt = OptionParser.new("usage: ruby_ast_visualizer [-o output_path] [-n] [-e 'command'] [programfile]")
 
 opt.on('-e', "--eval 'command'") {|v| options[:eval] = v }
+opt.on('-n', "--no-image") {|v| options[:no_image] = v }
 opt.on('-o', '--output path/to/file (DEFAULT a.png)') {|v| options[:output] = v }
 
 begin
@@ -36,13 +37,15 @@ begin
 
   ast = Parser::CurrentRuby.parse(source)
 
-  puts "\n#{ast}\n\n"
+  puts "\n#{ast}\n"
+
+  exit unless options[:no_image].nil?
 
   result = RubyAstVisualizer::Core.new(ast).visualize
 
   result.output(png: file_name)
 
-  puts "Wrote #{file_name}"
+  puts "\nWrote #{file_name}"
 rescue
   puts opt.help
 

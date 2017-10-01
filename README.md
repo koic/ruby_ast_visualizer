@@ -51,6 +51,16 @@ $ ruby_ast_visualizer -o path/to/file -e 'puts "hello, world"'
 Wrote path/to/file
 ```
 
+And you can also specify the `-n` (`--no-image`) option if you don't need an image.
+You can only get the result of S-expression by Parser gem.
+
+```sh
+$ ruby_ast_visualizer -n -e 'puts "hello, world"'
+
+(send nil :puts
+  (str "hello, world"))
+```
+
 ## Requirements
 
 * Graphviz
