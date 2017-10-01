@@ -30,7 +30,7 @@ module RubyAstVisualizer
 
         self_node << g.add_nodes(fetch_node_id(child), label: label)
 
-        reconfigure(g, child) if node.respond_to? :children
+        reconfigure(g, child) if child.respond_to? :children
       }
     end
 
